@@ -16,119 +16,95 @@ attachments:
     type: python
 ---
 
-Краткое описание: Реализовать классическую игру "Виселица" на Python — игроки отгадывают слово по буквам до истечения попыток.
+Short description: Implement the classic "Hangman" game in Python — players guess a hidden word letter by letter until they either win or run out of attempts.
 
-## 🎯 Цель
-Научиться строить интерактивное консольное приложение на Python, работать со строками, циклами, вводом пользователя и тестируемой логикой.
+## 🎯 Objective
+Learn to build an interactive console application in Python, handle user input, string processing, loops, and testable game logic.
 
-## 🎓 Цели обучения
-После выполнения задания студент должен уметь:
-- Реализовать игровую логику как набор небольших функций/классов, понятных и тестируемых.
-- Работать со строками и коллекциями для отображения прогресса и проверки догадок.
-- Обрабатывать ввод пользователя, невалидные/повторные значения и завершение игры.
+## 🎓 Learning Goals
+After completing this assignment, you should be able to:
+- Implement game logic as modular, testable functions/classes.
+- Use strings and collections to represent game progress and validate guesses.
+- Handle invalid or repeated user inputs gracefully and determine win/loss conditions.
 
-## ℹ️ Сведения
-- Сложность: Beginner
-- Ориентировочное время: 45–75 минут
-- Предварительные требования: Python 3, базовые знания по тестированию (pytest)
-- Формат сдачи: папка `assignments/games-in-python/` со структурой, описанной ниже
+## ℹ️ Information
+- Difficulty: Beginner  
+- Estimated Time: 45–75 minutes  
+- Prerequisites: Basic Python, pytest knowledge  
+- Submission Format: Folder `assignments/games-in-python/` as described below  
 
-## 📝 Задачи (шаги и требования)
+## 📝 Tasks
 
-### 🛠️ Задача 1 — Implement Hangman core
-#### Описание
-Реализовать основную логику игры "Виселица": выбор слова, обработка пользовательских догадок, отображение текущего состояния слова и отслеживание оставшихся попыток.
+### 🛠️ Task 1 — Implement Hangman Core
+#### Description
+Build the main game logic for “Hangman”: word selection, player guesses, progress display, and remaining attempts tracking.
 
-#### Шаги
-1. Создать/обновить папку `assignments/games-in-python/`
-2. Реализовать модуль `assignments/games-in-python/src/hangman.py` с функциями/классами:
-   - choose_word(word_list) -> str
-   - mask_word(word, guesses) -> str
-   - apply_guess(state, guess) -> (updated_state, correct: bool)
-   - run_game() — игровой цикл (можно в `src/main.py` как точка входа)
-3. Добавить тесты в `assignments/games-in-python/tests/test_hangman.py`
-4. Обновить этот README с инструкциями по запуску
+#### Steps
+1. Create or update folder `assignments/games-in-python/`
+2. Implement main module `assignments/games-in-python/src/hangman.py` with:
+   - `choose_word(word_list) -> str`
+   - `mask_word(word, guesses) -> str`
+   - `apply_guess(state, guess) -> (updated_state, correct: bool)`
+   - `run_game()` — main game loop (can be in `src/main.py`)
+3. Add tests in `assignments/games-in-python/tests/test_hangman.py`
+4. Update this README with run instructions
 
-#### Критерии приёма
-- Случайное (или параметризуемое) выбор слова из списка.
-- Правильное отображение закрытых/открытых букв (напр., "_ a _ _ m _ n").
-- Обработка одиночных буквных догадок; игнорирование пустых/небуквенных/повторных вводов с сообщением.
-- Отслеживание числа оставшихся неверных попыток и корректное завершение игры (win/lose).
-- Наличие автоматизированных тестов, покрывающих основные сценарии (верная догадка, неверная, повтор, граничные случаи).
-- Код снабжён докстрингами и понятными именами функций.
+#### Acceptance Criteria
+- Random or deterministic word selection.
+- Proper masked word display (e.g., `_ a _ _ m _ n`).
+- Handles single-letter guesses; ignores invalid or repeated inputs with a message.
+- Tracks remaining attempts and correctly determines win/lose.
+- Unit tests cover all main cases (correct guess, wrong guess, repeat, edge cases).
+- Code is readable and documented with docstrings.
 
-#### Файлы для изменения / создания
-- `assignments/games-in-python/README.md` — (этот файл)
-- `assignments/games-in-python/src/hangman.py` — основной код
-- `assignments/games-in-python/src/main.py` — точка запуска (опционально)
-- `assignments/games-in-python/tests/test_hangman.py` — pytest тесты
-- `assignments/games-in-python/assets/` — файлы слов/данных (опционально)
+#### Files to Modify / Create
+- `assignments/games-in-python/README.md`
+- `assignments/games-in-python/src/hangman.py`
+- `assignments/games-in-python/src/main.py` (optional entry point)
+- `assignments/games-in-python/tests/test_hangman.py`
+- `assignments/games-in-python/assets/` (optional — e.g., for words list)
 
-#### Подсказки
-- Разбейте логику на малые функции, чтобы было легко писать unit-тесты.
-- Для тестов сделайте выбор слова детерминированным (передавайте список/seed).
-- Обрабатывайте ввод в нижнем регистре, чтобы сравнения были нечувствительны к регистру.
+#### Tips
+- Keep logic in small, testable functions.
+- Use lowercase for input comparison.
+- Use a deterministic seed for word choice in tests.
 
 ---
 
-### 🛠️ Задача 2 — Optional extensions
-#### Описание
-Добавить дополнительные функции для улучшения игры и демонстрации навыков.
+### 🛠️ Task 2 — Optional Extensions
+#### Description
+Add optional features to enhance the gameplay.
 
-#### Шаги
-1. Поддержка загрузки слов из файла `assets/words.txt`
-2. Добавление ASCII-art для прогресса виселицы
-3. Реализовать режим подсчёта очков/мультиплеер или сохранение прогресса
+#### Steps
+1. Support loading words from `assets/words.txt`
+2. Add ASCII-art to visualize hangman progress
+3. Add score tracking or multiplayer mode
 
-#### Критерии приёма
-- Расширения не ломают базовую логику.
-- Есть дополнительные тесты для новых функций (например, парсинг файла слов).
-- Обновлён README описывает, как включить расширения.
+#### Acceptance Criteria
+- Extensions work without breaking base game logic.
+- Extra features have their own tests.
+- Updated README includes usage instructions.
 
-#### Подсказки
-- Реализуйте расширения как опции/флаги командной строки.
-- Для ASCII-art используйте простые строковые шаблоны и тестируйте их вывод.
+#### Tips
+- Use command-line flags to enable optional features.
+- Test ASCII-art rendering and file parsing.
 
-## ✅ Критерии оценки (пример)
-- Функциональность: 60%
-- Код и стиль: 20%
-- Документация (README): 10%
-- Тесты/покрытие кейсов: 10%
+## ✅ Evaluation Criteria
+- Functionality: 60%
+- Code Quality & Style: 20%
+- Documentation (README): 10%
+- Tests/Coverage: 10%
 
-## 💾 Проверка и запуск (локально)
-Команды для devcontainer (Debian GNU/Linux 13):
-- Установить зависимости (если есть):
-  - Python: `pip3 install -r requirements.txt`
-- Запуск игры (интерактивно):
-  - `cd assignments/games-in-python`
-  - `python3 src/main.py` или `python3 src/hangman.py`
-- Тесты:
-  - `cd assignments/games-in-python`
-  - `pytest`
+## 💾 Run and Test Locally
+Commands for Debian GNU/Linux 13 (devcontainer):
 
-Пример интерактивной сессии (иллюстрация):
-```
-$ python3 src/main.py
-Welcome to Hangman!
-Word: _ _ _ _ _ _
-Guesses left: 6
-Enter a letter: a
-Good guess! Word: _ a _ _ _ _
-```
+```bash
+# Install dependencies
+pip3 install -r requirements.txt
 
-## 📚 Ресурсы
-- Python docs: https://docs.python.org/3/
-- pytest: https://docs.pytest.org/
-- Примеры реализации Hangman и разборы на YouTube/articles (по желанию)
+# Run the game
+cd assignments/games-in-python
+python3 src/main.py
 
-## 📎 Требования к оформлению сдачи
-Обязательная структура папки `assignments/games-in-python/`:
-- README.md — инструкция и описание решения (этот файл)
-- src/ — исходный код (модули с докстрингами)
-- tests/ — модульные тесты (pytest)
-- assets/ — дополнительные файлы (например, `words.txt`)
-
-Рекомендации по стилю:
-- Простые, понятные имена функций и переменных.
-- Пишите тесты на граничные случаи и обработку неверного ввода.
-- Добавьте краткий комментарий/путь к использованию starter-code.py, если он предоставлен.
+# Run tests
+pytest
